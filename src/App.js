@@ -13,6 +13,14 @@ type AppState = {
   links: Array<LinkProps>
 };
 
+type LinksResponse = {
+  data: Array<LinkProps>
+};
+
+type GenericError = {
+  message: string
+};
+
 class App extends Component<{}, AppState> {
   state = {
     links: []
@@ -27,11 +35,11 @@ class App extends Component<{}, AppState> {
       .get("http://localhost:3000/api/links", {
         headers: { Authorization: "Bearer YQLY9SoZAjtc21YUy4ar" }
       })
-      .then(response => {
+      .then((response: LinksResponse) => {
         this.setState({ links: response.data });
         console.log(response);
       })
-      .catch(function(error) {
+      .catch(function(error: GenericError) {
         console.log(error);
       });
   }
