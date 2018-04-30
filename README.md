@@ -19,3 +19,10 @@ yarn add flow-bin --dev
 yarn add flow-typed --dev
 ./node_modules/.bin/flow-typed install axios@0.18.0
 ```
+
+## Installing linter
+
+```
+yarn add eslint-plugin-flowtype --dev
+yarn add eslint-plugin-react --dev
+```

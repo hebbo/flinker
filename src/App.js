@@ -26,10 +26,6 @@ class App extends Component<{}, AppState> {
     links: []
   };
 
-  render() {
-    return <div>LINKS GO HERE</div>;
-  }
-
   componentDidMount() {
     axios
       .get("http://localhost:3000/api/links", {
@@ -37,15 +33,18 @@ class App extends Component<{}, AppState> {
       })
       .then((response: LinksResponse) => {
         this.setState({ links: response.data });
-        console.log(response);
       })
       .catch(function(error: GenericError) {
-        console.log(error);
+        // console.log(error);
       });
   }
 
   render() {
-    return <div>{this.state.links.map(link => <Link {...link} />)}</div>;
+    return (
+      <div>
+        {this.state.links.map((link, index) => <Link key={index} {...link} />)}
+      </div>
+    );
   }
 }
 

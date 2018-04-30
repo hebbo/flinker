@@ -14,7 +14,7 @@ reset=`tput sgr0`
 # nvm use v8.11.1
 
 # echo "$magenta==== jest tests $reset"
-# yarn jest
+CI=true yarn test
 
 echo "$yellow==== flow type checks $reset"
 yarn run flow
@@ -23,10 +23,10 @@ echo "$magenta==== flow coverage $reset"
 yarn run flow coverage --pretty src/App.js
 
 # echo "$cyan==== linting $reset"
-# yarn run eslint src/*.js
+yarn run eslint src/*.js
 
 echo "$blue==== code formatter $reset"
-yarn run prettier --write "src/**/*.js"
+./node_modules/.bin/prettier --write "src/**/*.js"
 
 echo -e "\n\n$green 😎 Successful!! $reset"
 

@@ -1,0 +1,12 @@
+env:
+  browser: true
+  jest: true
+extends:
+  - 'standard'
+  - 'eslint:recommended'
+  - 'plugin:flowtype/recommended'
+  - 'plugin:react/recommended'
+plugins:
+  - flowtype
+  - react
+
