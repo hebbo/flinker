@@ -1,14 +1,25 @@
+// @flow
 import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
 
-class App extends Component {
+type LinkProps = {
+  id: number,
+  short_url: string,
+  long_url: string
+};
+
+type AppState = {
+  links: Array<LinkProps>
+};
+
+class App extends Component<{}, AppState> {
   state = {
     links: []
   };
 
   render() {
-    return <div> LINKS GO HERE </div>;
+    return <div>LINKS GO HERE</div>;
   }
 
   componentDidMount() {
@@ -30,7 +41,7 @@ class App extends Component {
   }
 }
 
-class Link extends Component {
+class Link extends Component<LinkProps, {}> {
   render() {
     const { id, short_url, long_url } = this.props;
 
