@@ -10,10 +10,7 @@ cyan=`tput setaf 6`
 white=`tput setaf 7`
 reset=`tput sgr0`
 
-# echo "$magenta==== using node v8.11.1 $reset"
-# nvm use v8.11.1
-
-# echo "$magenta==== jest tests $reset"
+echo "$magenta==== jest tests $reset"
 CI=true yarn test
 
 echo "$yellow==== flow type checks $reset"
@@ -22,7 +19,7 @@ yarn run flow
 echo "$magenta==== flow coverage $reset"
 yarn run flow coverage --pretty src/App.js
 
-# echo "$cyan==== linting $reset"
+echo "$cyan==== linting $reset"
 yarn run eslint src/*.js
 
 echo "$blue==== code formatter $reset"
